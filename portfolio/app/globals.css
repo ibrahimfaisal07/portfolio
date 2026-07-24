@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Tailwind v4 Import */
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* The Core Palette */
+    --bg-deep: #0B131F;
+    --blue-bright: #3B82F6;
+    --blue-glass: rgba(30, 58, 138, 0.15);
+    --blue-border: rgba(59, 130, 246, 0.25);
+    
+    /* Text Colors */
+    --text-main: #FFFFFF;
+    --text-muted: #94A3B8;
+  }
+
+  body {
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden; 
+    @apply antialiased;
+  }
+
+  /* Standard CSS approach for the text selection highlight */
+  ::selection {
+    background-color: rgba(59, 130, 246, 0.3);
+    color: white;
+  }
+
+  /* Base Typography Adjustments */
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight text-white;
+  }
+  
+  p {
+    color: var(--text-muted);
+    @apply leading-relaxed;
+  }
+}
+
+@layer utilities {
+  /* --- CUSTOM COMPONENT CLASSES --- */
+  .font-arabic {
+    font-family: 'Cairo', sans-serif;
+  }
+
+  /* 1. Liquid Glass Panel (For the Navbar and Cards) */
+  .glass-panel {
+    background-color: var(--blue-glass);
+    @apply backdrop-blur-md border border-[var(--blue-border)] shadow-xl;
+  }
+
+  /* 2. Vibrant Blue Button (For the 'Contact' button) */
+  .btn-primary {
+    background-color: var(--blue-bright);
+    @apply text-white px-6 py-2 rounded-full font-medium hover:bg-blue-600 hover:scale-105 transition-all duration-300 ease-out;
+  }
+
+  /* 3. Glass Button (For the 'Get in Touch' button) */
+  .btn-glass {
+    background-color: var(--blue-glass);
+    @apply text-white px-6 py-2 rounded-full font-medium backdrop-blur-md border border-[var(--blue-border)] hover:bg-[#1e3a8a]/40 hover:border-[#3b82f6]/50 transition-all duration-300;
+  }
+
+  /* 4. White Solid Button (For the 'View Selected Work' button) */
+  .btn-white {
+    @apply bg-white text-[#0B131F] px-6 py-2 rounded-full font-semibold hover:bg-gray-200 hover:scale-105 transition-all duration-300 ease-out;
+  }
+
+  /* 5. Blue Accent Text (For the '9' and dots) */
+  .text-accent {
+    color: var(--blue-bright);
+  }
+}
