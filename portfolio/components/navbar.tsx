@@ -32,10 +32,10 @@ export default function Navbar() {
 
         {/* CENTER: Desktop Links */}
         <div className="hidden md:flex items-center gap-8 text-[var(--text-muted)] text-sm font-medium">
-          <Link href="#work" className="hover:text-white transition-colors">Work</Link>
-          <Link href="#experience" className="hover:text-white transition-colors">Experience</Link>
-          <Link href="#stack" className="hover:text-white transition-colors">Stack</Link>
-          <Link href="#connect" className="hover:text-white transition-colors">Connect</Link>
+          <Link href="/#work" className="hover:text-white transition-colors">Work</Link>
+          <Link href="/#stack" className="hover:text-white transition-colors">Stack</Link>
+          <Link href="/#experience" className="hover:text-white transition-colors">Experience</Link>
+          <Link href="/#connect" className="hover:text-white transition-colors">Connect</Link>
         </div>
 
         {/* RIGHT: Desktop CTA */}
@@ -66,16 +66,16 @@ export default function Navbar() {
         }`}
       >
         <div className="glass-panel rounded-3xl p-4 flex flex-col space-y-1">
-          <ButtonLink href="#work" variant="ghost" className="flex justify-start text-base" onClick={() => setIsOpen(false)}>
+          <ButtonLink href="/#work" variant="ghost" className="flex justify-start text-base" onClick={() => setIsOpen(false)}>
             Work
           </ButtonLink>
-          <ButtonLink href="#experience" variant="ghost" className="flex justify-start text-base" onClick={() => setIsOpen(false)}>
-            Experience
-          </ButtonLink>
-          <ButtonLink href="#stack" variant="ghost" className="flex justify-start text-base" onClick={() => setIsOpen(false)}>
+          <ButtonLink href="/#stack" variant="ghost" className="flex justify-start text-base" onClick={() => setIsOpen(false)}>
             Stack
           </ButtonLink>
-          <ButtonLink href="#connect" variant="ghost" className="flex justify-start text-base" onClick={() => setIsOpen(false)}>
+          <ButtonLink href="/#experience" variant="ghost" className="flex justify-start text-base" onClick={() => setIsOpen(false)}>
+            Experience
+          </ButtonLink>
+          <ButtonLink href="/#connect" variant="ghost" className="flex justify-start text-base" onClick={() => setIsOpen(false)}>
             Connect
           </ButtonLink>
           

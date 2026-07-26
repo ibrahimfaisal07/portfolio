@@ -10,48 +10,43 @@ export interface ProjectType {
   techStack: string[]
   liveUrl?: string
   githubUrl?: string
-  // We will use this to alternate the layout
+  imgUrl?: string
   index: number 
 }
 
 export default function ProjectRow({ project }: { project: ProjectType }) {
-  // If the index is odd (1, 3, 5), the image goes on the right on desktop.
-  // On mobile, the image is ALWAYS on top.
   const isReversed = project.index % 2 !== 0
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center group">
       
-      {/* 
-        IMAGE CONTAINER 
-        Order logic: On mobile, always order-1 (top). 
-        On desktop, if reversed, order-2 (right), else order-1 (left).
-      */}
+      {/* IMAGE CONTAINER */}
       <div 
         className={`relative w-full aspect-[4/3] rounded-3xl overflow-hidden glass-panel border border-[var(--blue-border)] bg-[#0c1015] flex items-center justify-center transition-transform duration-500 group-hover:scale-[1.02] order-1 ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}
       >
         {/* Ambient background glow */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent z-0"></div>
         
-        {/* Placeholder for your actual project images */}
-        <p className="text-[var(--text-muted)] text-sm tracking-widest uppercase">
-          [ {project.title} Image ]
-        </p>
+        {/* Render Image if provided, else render placeholder */}
+        {project.imgUrl ? (
+          <img 
+            src={project.imgUrl} 
+            alt={`${project.title} preview`}
+            className="absolute inset-0 w-full h-full object-cover object-top z-10 transition-transform duration-700 group-hover:scale-105"
+          />
+        ) : (
+          <p className="text-[var(--text-muted)] text-sm tracking-widest uppercase relative z-10">
+            [ {project.title} Image ]
+          </p>
+        )}
       </div>
 
-      {/* 
-        TEXT CONTAINER 
-        Order logic: On mobile, always order-2 (bottom). 
-        On desktop, if reversed, order-1 (left), else order-2 (right).
-      */}
+      {/* TEXT CONTAINER */}
       <div className={`flex flex-col items-start order-2 ${isReversed ? 'lg:order-1' : 'lg:order-2'}`}>
-        
-        {/* Index Number */}
         <div className="text-blue-500 text-xs font-mono tracking-widest mb-4">
           / 0{project.index + 1}
         </div>
         
-        {/* Title & Description */}
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
           {project.title}
         </h2>
@@ -59,7 +54,6 @@ export default function ProjectRow({ project }: { project: ProjectType }) {
           {project.description}
         </p>
 
-        {/* Tech Stack Pills */}
         <div className="flex flex-wrap gap-2 mb-8">
           {project.techStack.map((tech) => (
             <span 
@@ -71,7 +65,6 @@ export default function ProjectRow({ project }: { project: ProjectType }) {
           ))}
         </div>
 
-        {/* Action Buttons */}
         <div className="flex items-center gap-4">
           {project.liveUrl && (
             <ButtonLink href={project.liveUrl} target="_blank" variant="white">
@@ -84,7 +77,6 @@ export default function ProjectRow({ project }: { project: ProjectType }) {
             </ButtonLink>
           )}
         </div>
-
       </div>
     </div>
   )

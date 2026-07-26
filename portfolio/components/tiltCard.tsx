@@ -55,19 +55,22 @@ export default function TiltCard() {
         {/* Ambient background glow */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent"></div>
 
-        {/* 
-          This translates in the Z-axis, making it literally pop out of the screen 
-          while the card tilts. You can replace this geometric circle with any 
-          high-quality .png image of an abstract shape or code architecture! 
-        */}
+        {/* Floating 3D Layer */}
         <div 
           style={{ transform: "translateZ(75px)" }} 
           className="relative flex items-center justify-center"
         >
-          {/* Sleek abstract geometric shapes (Lag-free CSS) */}
+          {/* Outer wireframe rings */}
           <div className="w-64 h-64 rounded-full border-[1px] border-blue-500/20 flex items-center justify-center shadow-[0_0_50px_rgba(59,130,246,0.05)]">
             <div className="w-48 h-48 rounded-full border-[1px] border-blue-400/30 flex items-center justify-center backdrop-blur-md">
-              <div className="w-24 h-24 rounded-full bg-blue-500/10 border-[1px] border-blue-400/50 shadow-[0_0_30px_rgba(59,130,246,0.3)] animate-pulse" />
+              
+              {/* Your custom Figma SVG from the public folder */}
+              <img 
+                src="./icon.svg" 
+                alt="My custom logo" 
+                className="w-24 h-24 drop-shadow-[0_0_15px_rgba(59,130,246,0.4)] transition-transform duration-700 hover:scale-110"
+              />
+
             </div>
           </div>
         </div>
@@ -79,7 +82,7 @@ export default function TiltCard() {
         >
           <div className="text-[10px] tracking-widest text-gray-400 uppercase">
             Fig. 01 <br />
-            <span className="text-gray-500">Geometry / React - 2026</span>
+            <span className="text-gray-500">Architecture / Logic - 2026</span>
           </div>
           <div className="w-8 h-8 rounded-full border border-blue-500/30 flex items-center justify-center">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
