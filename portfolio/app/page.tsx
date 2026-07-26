@@ -144,6 +144,21 @@ const dailyDrivers = [
 
 export default function Home() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
+
+  const handleCopyEmail = async () => {
+    const email = "ibrahimfaisal07@gmail.com";
+    
+    // 1. Copy to the user's clipboard
+    await navigator.clipboard.writeText(email);
+    
+    // 2. Show the "Copied" success state on the button for 2 seconds
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 2000);
+
+    // 3. Automatically open their default email app (Mail, Outlook, Gmail, etc.)
+    window.location.href = `mailto:${email}`;
+  };
 
   return <>
     {/* ================= CONTACT MODAL ================= */}
@@ -403,13 +418,21 @@ export default function Home() {
           problem — I'd love to hear about it.
         </p>
 
-        {/* Email Copy Pill (Uses your Button component) */}
+        {/* Email Copy Pill */}
         <div className="flex items-center justify-between p-1.5 pl-6 glass-panel rounded-full max-w-sm w-full mx-auto mb-8 shadow-2xl shadow-blue-900/10 hover:border-blue-500/50 transition-colors">
           <span className="text-sm font-medium text-white tracking-wide">
             ibrahimfaisal07@gmail.com
           </span>
-          <Button variant="primary" className="btn-white !text-xs !py-2">
-            COPY EMAIL
+          <Button 
+            variant="primary" 
+            onClick={handleCopyEmail}
+            className={`!text-xs !py-2 transition-all duration-300 ${
+              isCopied 
+                ? 'bg-green-500/20 text-green-400 hover:bg-green-500/30 border-green-500/50' 
+                : 'btn-white'
+            }`}
+          >
+            {isCopied ? 'COPIED ✓' : 'COPY EMAIL'}
           </Button>
         </div>
 
