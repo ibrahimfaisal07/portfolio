@@ -147,7 +147,7 @@ export default function Home() {
   const [isCopied, setIsCopied] = useState(false);
 
   const handleCopyEmail = async () => {
-    const email = "ibrahimfaisal07@gmail.com";
+    const email = "ibrafaisal2007@gmail.com";
     
     // 1. Copy to the user's clipboard
     await navigator.clipboard.writeText(email);
@@ -421,7 +421,7 @@ export default function Home() {
         {/* Email Copy Pill */}
         <div className="flex items-center justify-between p-1.5 pl-6 glass-panel rounded-full max-w-sm w-full mx-auto mb-8 shadow-2xl shadow-blue-900/10 hover:border-blue-500/50 transition-colors">
           <span className="text-sm font-medium text-white tracking-wide">
-            ibrahimfaisal07@gmail.com
+            ibrafaisal2007@gmail.com
           </span>
           <Button 
             variant="primary" 
