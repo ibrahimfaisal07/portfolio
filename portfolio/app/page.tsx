@@ -43,12 +43,21 @@ const experienceData: TimelineType[] = [
 
 const projectsData: ProjectType[] = [
   {
+    id: "guardrail",
+    title: "Guardrail",
+    description: "A scalable full-stack client portal and asset ingestion system built with Next.js App Router, leveraging Supabase Row-Level Security for strict multi-tenant data isolation.",
+    techStack: ["Next.Js", "Typescript", "Supabase"],
+    githubUrl: "https://github.com/nexieon/guardrail",
+    index: 0,
+    imgUrl: './guardrail.png'
+  },
+  {
     id: "codelang",
     title: "Codelang Core",
     description: "A custom programming language and interpreted architecture designed from the ground up.",
     techStack: ["C#", ".NET", "Interpreters"],
     githubUrl: "https://github.com/ibrahimfaisal07/Codelang",
-    index: 0,
+    index: 1,
     imgUrl: './codelang.png'
   },
   {
@@ -57,7 +66,7 @@ const projectsData: ProjectType[] = [
     description: "A custom 2D game engine built entirely from scratch for web-based gaming experiences.",
     techStack: ["JavaScript", "HTML5 Canvas", "Game Dev"],
     githubUrl: "https://github.com/ibrahimfaisal07/2dGameEngineJS",
-    index: 1,
+    index: 2,
     imgUrl: './evaengine.png'
   },
   {
@@ -66,7 +75,7 @@ const projectsData: ProjectType[] = [
     description: "A high-performance web framework for C# mimicking the routing and middleware architecture of Express.js.",
     techStack: ["C#", ".NET", "Systems Design"],
     githubUrl: "https://github.com/ibrahimfaisal07/TyphoonDotNET",
-    index: 2,
+    index: 3,
     imgUrl: './typhoon.png'
   },
   {
@@ -75,7 +84,7 @@ const projectsData: ProjectType[] = [
     description: "An artificial intelligence classifier built entirely in TypeScript. Designed to categorize and process data structures efficiently without relying on black-box external APIs.",
     techStack: ["TypeScript", "Machine Learning", "Algorithms"],
     githubUrl: "https://github.com/ibrahimfaisal07/SqAI",
-    index: 3,
+    index: 4,
     imgUrl: './sqai.png'
   }
 ];
